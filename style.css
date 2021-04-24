@@ -112,6 +112,86 @@ button:hover {
   align-items: center;
 }
 
+h1 {
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
 h2 {
   margin: 30px;
+}
+
+.wrapper {
+  padding: 40px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  border: 1px solid var(--main-color-border);
+  border-radius: var(--main-border-radius);
+  /* max-width: 400px; */
+  padding: 10px;
+  margin: 10px 100px;
+}
+
+#gestures {
+  /* outline: 1px dashed red; */
+}
+
+#gestures > p {
+
+  margin: 20px auto;
+  text-align: center;
+  border-bottom: 1px solid var(--main-color-border);
+  padding: 4px;
+
+}
+
+.gestures {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-around;
+  list-style: none;
+}
+
+.gestures img {
+  cursor: pointer;
+}
+
+.gestures input[type="radio"]{
+  display: none;
+}
+
+.gestures label input:checked{
+  /* display: none; */
+  /* outline: 1px solid red; */
+}
+
+.actions {
+  /* outline: 1px dashed red; */
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-around;
+}
+
+.summary h3 {
+  font-size: 1.5rem;
+  /* outline: 1px dashed red; */
+  margin-bottom: 20px;
+}
+
+.summary > div > ul li {
+  margin: 10px 0;
+}
+
+.select-your-choose {
+  border: 1px solid var(--main-color-border);
+  background-color: rgba(9, 12, 16, 1.0);
+  border-radius: var(--main-border-radius);
 }

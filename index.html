@@ -10,7 +10,53 @@
   <meta author="Damian Moliński">
 </head>
 <body>
+  <div class="wrapper">
+    <h1 class="row">Game "Paper Scissors Rock"</h1>
+    <form id="gestures" action="">
+      <p>Select hand gesture:</p>
+    <div class="gestures">
+      <label for="select-paper">
+        <img src="./img/paper.jpg" alt="">
+        <input type="radio" name="game" value="paper" id="select-paper">
+      </label>
 
+
+      <label for="select-scissors">
+        <img src="./img/scissors.jpg" alt="">
+        <input type="radio" name="game" value="scissors" id="select-scissors">
+      </label>
+
+
+      <label for="select-rock">
+        <img src="./img/rock.jpg" alt="">
+        <input type="radio" name="game" value="rock" id="select-rock">
+      </label>
+    </div>
+    <button class="start green">LET'S PLAY!</button>
+    </form>
+    <!-- <div class="actions">
+      <button class="start green">LET'S PLAY!</button>
+    </div> -->
+    <div class="summary">
+      <div>
+        <h3>Result game</h3>
+        <ul>
+          <li>Your choose: <span>rock</span></li>
+          <li>Computer chooses: <span>paper</span></li>
+          <li>Winner: <span>you/computer</span></li>
+        </ul>
+      </div>
+      <div class="statistics">
+        <h3>Statistics</h3>
+        <ul>
+          <li>Liczba gier: <span>1</span></li>
+          <li>Winnings: <span>1</span></li>
+          <li>Losers: <span>1</span></li>
+          <li>Draw: <span>1</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <script src="./main.js"></script>
 </body>
 </html>
