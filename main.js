@@ -3,6 +3,7 @@ const labels = form.querySelectorAll('label');
 const images = form.querySelectorAll('img');
 const btnStart = form.querySelector('button');
 let yourChoose;
+let computerChoose;
 
 images.forEach((el, index) => {
   el.addEventListener('click', () => {
@@ -28,8 +29,21 @@ function detectName(number) {
 }
 
 function result(player, computer) {
-  // Opracuj zasady gry
-  // if(player)
+  if (player === computer) {
+    console.log('remis!');
+  } else if (player === 0 && computer === 1) {
+    console.log('przegrałeś');
+  } else if (player === 0 && computer === 2) {
+    console.log('wygrałeś');
+  } else if (player === 1 && computer === 0) {
+    console.log('wygrałeś');
+  } else if (player === 1 && computer === 2) {
+    console.log('przegrałeś');
+  } else if (player === 2 && computer === 0) {
+    console.log('przegrałeś');
+  } else if (player === 2 && computer === 1) {
+    console.log('wygrałeś');
+  }
 }
 
 const random = () => Math.floor(Math.random() * 3);
@@ -43,7 +57,10 @@ function play(e) {
     console.log(`Wybrałeś: ${detectName(yourChoose)}`);
   }
 
-  console.log(`Komputer wybrał: ${detectName(random())}`);
+  computerChoose = random();
+
+  console.log(`Komputer wybrał: ${detectName(computerChoose)}`);
+  result(yourChoose, computerChoose);
 }
 
 btnStart.addEventListener('click', play);
