@@ -2,15 +2,10 @@ const form = document.querySelector('#gestures');
 const labels = form.querySelectorAll('label');
 const images = form.querySelectorAll('img');
 const btnStart = form.querySelector('button');
+const resultSection = document.querySelector('#result');
 let yourChoose;
 let computerChoose;
-
-images.forEach((el, index) => {
-  el.addEventListener('click', () => {
-    yourChoose = index;
-    console.log(`My choose: ${yourChoose}`);
-  });
-});
+let result;
 
 function detectName(number) {
   switch (number) {
@@ -28,21 +23,58 @@ function detectName(number) {
   }
 }
 
-function result(player, computer) {
+images.forEach((el, index) => {
+  el.addEventListener('click', () => {
+    yourChoose = index;
+    console.log(`My choose: ${detectName(yourChoose)}`);
+    console.log('-------------------- Let\'s Play!');
+  });
+});
+
+function rules(player, computer) {
   if (player === computer) {
     console.log('remis!');
-  } else if (player === 0 && computer === 1) {
+    return 1;
+  } if (player === 0 && computer === 1) {
     console.log('przegrałeś');
-  } else if (player === 0 && computer === 2) {
+    return 0;
+  } if (player === 0 && computer === 2) {
     console.log('wygrałeś');
-  } else if (player === 1 && computer === 0) {
+    return 2;
+  } if (player === 1 && computer === 0) {
     console.log('wygrałeś');
-  } else if (player === 1 && computer === 2) {
+    return 2;
+  } if (player === 1 && computer === 2) {
     console.log('przegrałeś');
-  } else if (player === 2 && computer === 0) {
+    return 0;
+  } if (player === 2 && computer === 0) {
     console.log('przegrałeś');
-  } else if (player === 2 && computer === 1) {
+    return 0;
+  } if (player === 2 && computer === 1) {
     console.log('wygrałeś');
+    return 2;
+  }
+}
+
+function showResult(result) {
+  if (result === 0) {
+    resultSection.removeAttribute('class');
+    resultSection.classList.add('result');
+    resultSection.classList.add('show-result-red');
+    resultSection.textContent = '';
+    resultSection.textContent = 'LOSE!';
+  } else if (result === 1) {
+    resultSection.removeAttribute('class');
+    resultSection.classList.add('result');
+    resultSection.classList.add('show-result-orange');
+    resultSection.textContent = '';
+    resultSection.textContent = 'DRAW!';
+  } else if (result === 2) {
+    resultSection.removeAttribute('class');
+    resultSection.classList.add('result');
+    resultSection.classList.add('show-result-green');
+    resultSection.textContent = '';
+    resultSection.textContent = 'WIN!';
   }
 }
 
@@ -60,7 +92,9 @@ function play(e) {
   computerChoose = random();
 
   console.log(`Komputer wybrał: ${detectName(computerChoose)}`);
-  result(yourChoose, computerChoose);
+  result = rules(yourChoose, computerChoose);
+  console.log(result);
+  showResult(result);
 }
 
 btnStart.addEventListener('click', play);

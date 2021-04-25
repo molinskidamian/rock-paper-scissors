@@ -137,6 +137,7 @@ h2 {
 
 #gestures {
   /* outline: 1px dashed red; */
+  /* display: flex; */
 }
 
 #gestures > p {
@@ -145,6 +146,9 @@ h2 {
   text-align: center;
   border-bottom: 1px solid var(--main-color-border);
   padding: 4px;
+}
+
+#gestures button {
 
 }
 
@@ -175,6 +179,16 @@ h2 {
   justify-content: center;
 }
 
+.result {
+  /* outline: 1px solid red; */
+
+  margin: 40px auto;
+  padding: 40px;
+  width: 30vw;
+  text-align: center;
+  font-size: 3rem;
+}
+
 .summary {
   display: flex;
   justify-content: space-around;
@@ -194,4 +208,16 @@ h2 {
   border: 1px solid var(--main-color-border);
   background-color: rgba(9, 12, 16, 1.0);
   border-radius: var(--main-border-radius);
+}
+
+.show-result-red {
+  background-color: red;
+}
+
+.show-result-orange {
+  background-color: orange;
+}
+
+.show-result-green {
+  background-color: green;
 }
